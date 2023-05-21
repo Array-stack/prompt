@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Suche</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Analysiere dein Keyword</h1>
+    <form method="POST" action="/" style="text-align: center;">
+        <input type="text" name="search_term" placeholder="Gib einen Suchbegriff ein" required style="width: 300px; border: 2px solid #4CAF50; padding: 10px; margin: 10px;">
+        <br>
+        <input type="submit" value="Analysieren" style="font-size: 16px; background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px;">
+    </form>
+    
+    {% if titles %}
+    <div class="search-results" style="text-align: left;">
+        <h2 style="text-align: left;">Suchergebnisse für "{{ search_term }}":</h2>
+        <form method="POST" action="/" style="text-align: left;">
+            <ul style="list-style-type: none; padding: 0;">
+                {% for title, link in combine_lists(titles, links) %}
+                    <li>
+                        <input type="checkbox" name="selected_options" value="{{ link }}" id="{{ loop.index }}">
+                        <label for="{{ loop.index }}">
+                            <a href="{{ link }}" target="_blank">{{ title }}</a>
+                        </label>
+                    </li>
+                {% endfor %}
+            </ul>
+            <br>
+            <input type="submit" value="Auswahl bestätigen" style="font-size: 16px; background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; margin-top: 10px;">
+        </form>
+    </div>
+    {% endif %}
+    
+</body>
+</html>

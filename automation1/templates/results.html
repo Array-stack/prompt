@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Suchergebnisse</title>
+</head>
+<body>
+    <h1>Suchergebnisse für '{{ search_term }}'</h1>
+    <ul>
+        {% for link in links %}
+            <li><a href="{{ link }}">{{ link }}</a></li>
+        {% endfor %}
+    </ul>
+    </body>
+</html>
