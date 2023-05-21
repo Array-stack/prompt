@@ -14,7 +14,8 @@
     {% if titles %}
     <div class="search-results" style="text-align: left;">
         <h2 style="text-align: left;">Suchergebnisse für "{{ search_term }}":</h2>
-        <form method="POST" action="/" style="text-align: left;">
+        <form method="POST" action="/send_prompt" style="text-align: left;">
+            <input type="hidden" name="search_term" value="{{ search_term }}">
             <ul style="list-style-type: none; padding: 0;">
                 {% for title, link in combine_lists(titles, links) %}
                     <li>
