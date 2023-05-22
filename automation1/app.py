@@ -73,7 +73,7 @@ def send_prompt():
     selected_options = request.form.getlist('selected_options')
 
     # Define OpenAI API key 
-    openai.api_key = "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"
+    openai.api_key = ""
 
     # Set up the model and prompt
     model_engine = "text-davinci-003"
